@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32D178BE1FA0FE2500B7A682 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D178BD1FA0FE2500B7A682 /* Item.swift */; };
 		E3A2998B1F9C114400876E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2998A1F9C114400876E62 /* AppDelegate.swift */; };
 		E3A2998D1F9C114400876E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3A2998C1F9C114400876E62 /* ViewController.swift */; };
 		E3A299901F9C114400876E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A2998E1F9C114400876E62 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32D178BD1FA0FE2500B7A682 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E3A299871F9C114300876E62 /* 601wardrobe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 601wardrobe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3A2998A1F9C114400876E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E3A2998C1F9C114400876E62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 				E3A2998A1F9C114400876E62 /* AppDelegate.swift */,
 				E3A2998C1F9C114400876E62 /* ViewController.swift */,
 				E3A2998E1F9C114400876E62 /* Main.storyboard */,
+				32D178BD1FA0FE2500B7A682 /* Item.swift */,
 				E3A2999C1F9C120D00876E62 /* MyCollectionViewCell.swift */,
 				E3A299911F9C114400876E62 /* Assets.xcassets */,
 				E3A299931F9C114400876E62 /* LaunchScreen.storyboard */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D178BE1FA0FE2500B7A682 /* Item.swift in Sources */,
 				E3A2998D1F9C114400876E62 /* ViewController.swift in Sources */,
 				E3A2998B1F9C114400876E62 /* AppDelegate.swift in Sources */,
 				E3A2999D1F9C120D00876E62 /* MyCollectionViewCell.swift in Sources */,
