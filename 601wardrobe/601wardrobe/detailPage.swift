@@ -1,5 +1,5 @@
 //
-//  detailPage.swift
+//  ItemViewControler.swift
 //  601wardrobe
 //
 //  Created by Tommy Zheng on 10/24/17.
@@ -9,7 +9,7 @@
 import UIKit
 import os.log
 
-class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class ItemViewController: UIViewController ,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var itemNameLabel: UILabel!
     @IBOutlet weak var itemNameText: UITextField!
