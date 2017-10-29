@@ -23,10 +23,9 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     
     var item: Item?
     
-    let picker = UIImagePickerController()
-    
     
     @IBAction func shootPhoto(_ sender: UIButton) {
+        let picker = UIImagePickerController()
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             itemNameText.resignFirstResponder()
             picker.allowsEditing = false
@@ -57,15 +56,19 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     
     @IBAction func photofromLibrary(_ sender: UIButton) {
         itemNameText.resignFirstResponder()
-        picker.allowsEditing = false
-        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-            let picker = UIImagePickerController()
-            picker.delegate = self
-            picker.sourceType = .photoLibrary
-            present(picker, animated: true, completion: nil)
-        } else {
-            print("Can't read image from album.")
-        }
+        let picker = UIImagePickerController()
+        picker.sourceType = .photoLibrary
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
+        //picker.allowsEditing = false
+//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+//            let picker = UIImagePickerController()
+//            picker.delegate = self
+//            picker.sourceType = .photoLibrary
+//            present(picker, animated: true, completion: nil)
+//        } else {
+//            print("Can't read image from album.")
+//        }
     }
     
     //var items: Items?
@@ -74,7 +77,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         super.viewDidLoad()
         itemNameText.delegate = self
         itemDetailText.delegate = self
-        picker.delegate = self
+        //picker.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -113,54 +116,21 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     
     //MARK: Actions
 
-//    @IBAction func selectImageFromPhotoLibrary(_ sender: UITapGestureRecognizer) {
-//
-//        // Hide the keyboard.
-//        itemNameText.resignFirstResponder()
-//
-//        // UIImagePickerController is a view controller that lets a user pick media from their photo library.
-//        let imagePickerController = UIImagePickerController()
-//
-//        // Only allow photos to be picked, not taken.
-//        imagePickerController.sourceType = .photoLibrary
-//
-//        // Make sure ViewController is notified when the user picks an image.
-//        imagePickerController.delegate = self
-//        present(imagePickerController, animated: true, completion: nil)
-//    }
-    
-    //MARK: UIImagePickerControllerDelegate
-//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-//        // Dismiss the picker if the user canceled.
-//        dismiss(animated: true, completion: nil)
-//    }
-    
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//
-//        // The info dictionary may contain multiple representations of the image. You want to use the original.
-//        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-//            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-//        }
-//
-//        // Set photoImageView to display the selected image.
-//        photoImageView.image = selectedImage
-//
-//        // Dismiss the picker.
-//        dismiss(animated: true, completion: nil)
-//    }
     
     //MARK: - Delegates
-    private func imagePickerController(_ picker: UIImagePickerController,
-                               didFinishPickingMediaWithInfo info: [String : AnyObject])
+    func imagePickerController(_ picker: UIImagePickerController,
+                               didFinishPickingMediaWithInfo info: [String : Any])
     {
-        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
+        }
         
-//        guard let chosenImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-//            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-//        }
-//
-        photoImageView.image = chosenImage
-        dismiss(animated:true, completion: nil)
+        photoImageView.image = selectedImage
+        
+        // Dismiss the picker.
+        dismiss(animated: true, completion: nil)
+        
+   
     }
     
     
