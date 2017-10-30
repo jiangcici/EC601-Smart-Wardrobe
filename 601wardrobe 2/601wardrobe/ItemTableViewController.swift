@@ -15,11 +15,21 @@ class ItemTableViewController: UITableViewController {
     
     var items = [Item]()
 
+    @IBAction func Edit(_ sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+        
+        if tableView.isEditing {
+            self.editButtonItem.title = "Done"
+        } else {
+            self.editButtonItem.title = "Edit"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Use the edit button item provided by the table view controller.
-        navigationItem.leftBarButtonItem = editButtonItem
+        //navigationItem.rightBarButtonItem = editButtonItem
 
         loadSampleItems()
     }
@@ -74,9 +84,6 @@ class ItemTableViewController: UITableViewController {
         case "AddItem":
             os_log("Adding a new item.", log: OSLog.default, type: .debug)
             
-        case "BackToMain":
-            os_log("Go back to main page.", log: OSLog.default, type: .debug)
-            
         case "showDetail":
             guard let itemDetailViewController = segue.destination as? detailPage else {
                 fatalError("Unexpected destination: \(segue.destination)")
@@ -123,12 +130,12 @@ class ItemTableViewController: UITableViewController {
         let photo1 = UIImage(named: "Top")
         let photo2 = UIImage(named: "Pant")
         
-        guard let item1 = Item(name: "Hoodie", photo: photo1, detail: "gray", pref: 5, type:"top") else {
-            fatalError("Unable to instantiate meal1")
+        guard let item1 = Item(name: "Sweater", photo: photo1, detail: "Vans grey sweater", pref: 5, type:"top") else {
+            fatalError("Unable to instantiate item1")
         }
         
-        guard let item2 = Item(name: "Jeans", photo: photo2, detail: "light blue", pref: 5, type:"pant") else {
-            fatalError("Unable to instantiate meal2")
+        guard let item2 = Item(name: "Straight Jeans", photo: photo2, detail: "light blue", pref: 5, type:"pant") else {
+            fatalError("Unable to instantiate item2")
         }
         
         items += [item1, item2]

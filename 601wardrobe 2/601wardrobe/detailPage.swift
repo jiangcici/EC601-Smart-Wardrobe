@@ -88,7 +88,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
             photoImageView.image = item.photo
         }
         
-        updateSaveButtonState()
+        //updateSaveButtonState()
         // Do any additional setup after loading the view.
     }
     
@@ -150,10 +150,10 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     
     //MARK: Private Methods
     
-    private func updateSaveButtonState() {
-        // Disable the Save button if the text field is empty.
-        let text = itemNameText.text ?? ""
-        saveButton.isEnabled = !text.isEmpty
-    }
+//    private func updateSaveButtonState() {
+//        // Disable the Save button if the text field is empty.
+//        let text = itemNameText.text ?? ""
+//        saveButton.isEnabled = !text.isEmpty
+//    }
     
 }

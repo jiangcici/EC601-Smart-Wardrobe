@@ -22,7 +22,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nYA-ZH-wGE">
                                 <rect key="frame" x="0.0" y="84" width="375" height="451"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-Od-Ewt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-Od-Ewt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -35,7 +35,7 @@
                                             <constraint firstAttribute="width" secondItem="Olh-Fw-qFS" secondAttribute="height" multiplier="1:1" id="tvm-tC-973"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Description" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3YO-wX-7BC">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Description" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3YO-wX-7BC">
                                         <rect key="frame" x="0.0" y="421" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -117,14 +117,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bew-2s-3IX">
-                                <rect key="frame" x="94" y="133" width="187" height="47"/>
+                                <rect key="frame" x="94" y="177" width="187" height="47"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="8nM-le-yMe"/>
                                     <constraint firstAttribute="height" constant="92" id="fC9-tb-jgd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <state key="normal" title="Suggestion">
+                                <state key="normal" title="Suggestions">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -132,7 +132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-KT-YbD">
-                                <rect key="frame" x="94" y="288" width="187" height="47"/>
+                                <rect key="frame" x="94" y="332" width="187" height="47"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="kxW-6j-FF4"/>
@@ -142,6 +142,9 @@
                                 <state key="normal" title="Add">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="BD6-7J-UCZ" kind="presentation" identifier="AddItemFromMain" id="ltn-FE-mlm"/>
+                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-fv-ZVK">
                                 <rect key="frame" x="0.0" y="622" width="375" height="44"/>
@@ -158,7 +161,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Wardrobe" id="oHR-7I-fHY">
                                             <connections>
-                                                <segue destination="3Wa-F9-vGu" kind="presentation" id="UeF-mt-tao"/>
+                                                <segue destination="RX8-da-CcN" kind="show" id="XRX-xr-CSU"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -268,12 +271,12 @@
                                         </subviews>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bV0-g3-Iyz">
-                                        <rect key="frame" x="150.5" y="228.5" width="74" height="42"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                        <rect key="frame" x="147.5" y="228.5" width="80" height="42"/>
+                                        <color key="backgroundColor" red="0.59999999999999998" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                         <color key="tintColor" red="0.0" green="0.59999999999999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Sign In">
-                                            <color key="titleColor" red="0.0" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="signInButtonTapped:" destination="Hfu-oB-xcP" eventType="touchUpInside" id="pb2-7u-Xld"/>
@@ -414,9 +417,9 @@
                                     <segue destination="BD6-7J-UCZ" kind="presentation" identifier="AddItem" id="K0A-0h-FYE"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem title="Main" id="3At-9r-8Yg">
+                            <barButtonItem title="Edit" id="uwV-MO-fGb">
                                 <connections>
-                                    <segue destination="Urj-q2-sKZ" kind="presentation" identifier="BackToMain" id="mXM-h6-swu"/>
+                                    <action selector="Edit:" destination="RX8-da-CcN" id="t5W-Fz-boT"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -449,8 +452,8 @@
         <image name="Image" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UeF-mt-tao"/>
-        <segue reference="mXM-h6-swu"/>
+        <segue reference="XRX-xr-CSU"/>
+        <segue reference="ltn-FE-mlm"/>
         <segue reference="wlo-Ou-BQc"/>
     </inferredMetricsTieBreakers>
 </document>
