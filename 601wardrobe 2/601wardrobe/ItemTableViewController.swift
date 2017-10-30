@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import os.log
 
 class ItemTableViewController: UITableViewController {
     
@@ -16,6 +17,9 @@ class ItemTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Use the edit button item provided by the table view controller.
+        navigationItem.leftBarButtonItem = editButtonItem
 
         loadSampleItems()
     }
@@ -58,60 +62,59 @@ class ItemTableViewController: UITableViewController {
     }
     
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        super.prepare(for: segue, sender: sender)
+        
+        switch(segue.identifier ?? "") {
+            
+        case "AddItem":
+            os_log("Adding a new item.", log: OSLog.default, type: .debug)
+            
+        case "BackToMain":
+            os_log("Go back to main page.", log: OSLog.default, type: .debug)
+            
+        case "showDetail":
+            guard let itemDetailViewController = segue.destination as? detailPage else {
+                fatalError("Unexpected destination: \(segue.destination)")
+            }
+            
+            guard let selectedItemCell = sender as? ItemTableViewCell else {
+                fatalError("Unexpected sender: \(String(describing: sender))")
+            }
+            
+            guard let indexPath = tableView.indexPath(for: selectedItemCell) else {
+                fatalError("The selected cell is not being displayed by the table")
+            }
+            
+            let selectedItem = items[indexPath.row]
+            itemDetailViewController.item = selectedItem
+            
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+ 
     
     //Actions
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? detailPage, let item = sourceViewController.item {
             
-            // Add a new meal.
-            let newIndexPath = IndexPath(row: items.count, section: 0)
-            
-            items.append(item)
-            tableView.insertRows(at: [newIndexPath], with: .automatic)
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                // Update an existing item.
+                items[selectedIndexPath.row] = item
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            }
+            else {
+                // Add a new item.
+                let newIndexPath = IndexPath(row: items.count, section: 0)
+                
+                items.append(item)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
         }
     }
     
@@ -130,6 +133,23 @@ class ItemTableViewController: UITableViewController {
         
         items += [item1, item2]
         
+    }
+    
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            items.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
 
 }

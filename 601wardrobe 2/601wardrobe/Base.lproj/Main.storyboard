@@ -6,6 +6,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -116,7 +117,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bew-2s-3IX">
-                                <rect key="frame" x="94" y="177" width="187" height="47"/>
+                                <rect key="frame" x="94" y="133" width="187" height="47"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="187" id="8nM-le-yMe"/>
@@ -131,7 +132,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XN3-KT-YbD">
-                                <rect key="frame" x="94" y="332" width="187" height="47"/>
+                                <rect key="frame" x="94" y="288" width="187" height="47"/>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="kxW-6j-FF4"/>
@@ -325,6 +326,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="BD6-7J-UCZ" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="GLr-WW-nkS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Bko-zb-haU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -336,7 +338,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bx-YM-iMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1694" y="134"/>
+            <point key="canvasLocation" x="1666" y="698"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gHz-3i-AQZ">
@@ -396,6 +398,7 @@
                                     <outlet property="detailLabel" destination="79A-N4-cc1" id="PVE-ko-BGP"/>
                                     <outlet property="nameLabel" destination="APM-go-qHl" id="nQQ-2j-jkG"/>
                                     <outlet property="photoImageView" destination="FIe-L2-bHo" id="Bmf-Kx-orr"/>
+                                    <segue destination="D1O-Rk-w9F" kind="show" identifier="showDetail" id="wlo-Ou-BQc"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -405,11 +408,18 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Wardrobe" id="TR5-1B-Qqh">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="gyQ-cx-uYI">
-                            <connections>
-                                <segue destination="BD6-7J-UCZ" kind="presentation" identifier="AddItem" id="K0A-0h-FYE"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="gyQ-cx-uYI">
+                                <connections>
+                                    <segue destination="BD6-7J-UCZ" kind="presentation" identifier="AddItem" id="K0A-0h-FYE"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Main" id="3At-9r-8Yg">
+                                <connections>
+                                    <segue destination="Urj-q2-sKZ" kind="presentation" identifier="BackToMain" id="mXM-h6-swu"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cm-cz-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,4 +448,9 @@
     <resources>
         <image name="Image" width="540" height="540"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UeF-mt-tao"/>
+        <segue reference="mXM-h6-swu"/>
+        <segue reference="wlo-Ou-BQc"/>
+    </inferredMetricsTieBreakers>
 </document>

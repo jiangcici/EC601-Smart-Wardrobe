@@ -17,7 +17,20 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     @IBOutlet weak var saveButton: UIBarButtonItem!
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
-        dismiss(animated: true, completion: nil)
+        
+        let isPresentingInAddItemMode = presentingViewController is
+            UINavigationController
+        
+        if isPresentingInAddItemMode {
+            dismiss(animated: true, completion: nil)
+        }
+        
+        else if let owningNavigationController = navigationController{
+            owningNavigationController.popViewController(animated: true)
+        }
+        else {
+            fatalError("The detailPage is not inside a navigation controller.")
+        }
     }
     
     
@@ -60,15 +73,6 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         picker.sourceType = .photoLibrary
         picker.delegate = self
         present(picker, animated: true, completion: nil)
-        //picker.allowsEditing = false
-//        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
-//            let picker = UIImagePickerController()
-//            picker.delegate = self
-//            picker.sourceType = .photoLibrary
-//            present(picker, animated: true, completion: nil)
-//        } else {
-//            print("Can't read image from album.")
-//        }
     }
     
     //var items: Items?
@@ -77,7 +81,14 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         super.viewDidLoad()
         itemNameText.delegate = self
         itemDetailText.delegate = self
-        //picker.delegate = self
+        
+        if let item = item {
+            itemNameText.text = item.name
+            itemDetailText.text = item.name
+            photoImageView.image = item.photo
+        }
+        
+        updateSaveButtonState()
         // Do any additional setup after loading the view.
     }
     
@@ -133,10 +144,16 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
    
     }
     
-    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK: Private Methods
+    
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = itemNameText.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
     
 }
