@@ -58,7 +58,7 @@ class ItemTableViewController: UITableViewController {
         let cellIdentifier = "ItemTableViewCell"
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ItemTableViewCell  else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
         // Fetches the appropriate meal for the data source layout.
@@ -121,6 +121,7 @@ class ItemTableViewController: UITableViewController {
                 
                 items.append(item)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
+                tableView.endUpdates()
             }
         }
     }

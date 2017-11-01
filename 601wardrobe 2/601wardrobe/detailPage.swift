@@ -8,6 +8,8 @@
 
 import UIKit
 import os.log
+import Firebase
+import FirebaseDatabase
 
 class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -15,6 +17,8 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     @IBOutlet weak var itemDetailText: UITextField!
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    
+    //var ref: DatabaseReference!
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
@@ -84,9 +88,11 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         
         if let item = item {
             itemNameText.text = item.name
-            itemDetailText.text = item.name
+            itemDetailText.text = item.detail
             photoImageView.image = item.photo
         }
+        
+        //ref = Database.database().reference()
         
         //updateSaveButtonState()
         // Do any additional setup after loading the view.
@@ -123,6 +129,8 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         
         // Set the meal to be passed to MealTableViewController after the unwind segue.
         item = Item(name: name, photo: photo, detail: detail, pref: 5, type: "default")
+        
+        //self.ref.child("users").childByAutoId().setValue(["name": itemNameText.text],["detail": itemDetailText.text])
     }
     
     //MARK: Actions

@@ -22,7 +22,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nYA-ZH-wGE">
                                 <rect key="frame" x="0.0" y="84" width="375" height="451"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-Od-Ewt">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rg4-Od-Ewt">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -35,7 +35,7 @@
                                             <constraint firstAttribute="width" secondItem="Olh-Fw-qFS" secondAttribute="height" multiplier="1:1" id="tvm-tC-973"/>
                                         </constraints>
                                     </imageView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Description" textAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3YO-wX-7BC">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Item Description" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3YO-wX-7BC">
                                         <rect key="frame" x="0.0" y="421" width="375" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -143,7 +143,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BD6-7J-UCZ" kind="presentation" identifier="AddItemFromMain" id="ltn-FE-mlm"/>
+                                    <segue destination="BD6-7J-UCZ" kind="presentation" id="7yq-VA-Zks"/>
                                 </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-fv-ZVK">
@@ -161,7 +161,7 @@
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Wardrobe" id="oHR-7I-fHY">
                                             <connections>
-                                                <segue destination="RX8-da-CcN" kind="show" id="XRX-xr-CSU"/>
+                                                <segue destination="RX8-da-CcN" kind="show" id="fjb-aX-Jgi"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -427,7 +427,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cm-cz-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="854" y="134"/>
+            <point key="canvasLocation" x="996" y="134"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pcG-X2-Ic8">
@@ -452,8 +452,8 @@
         <image name="Image" width="540" height="540"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XRX-xr-CSU"/>
-        <segue reference="ltn-FE-mlm"/>
+        <segue reference="fjb-aX-Jgi"/>
+        <segue reference="7yq-VA-Zks"/>
         <segue reference="wlo-Ou-BQc"/>
     </inferredMetricsTieBreakers>
 </document>
