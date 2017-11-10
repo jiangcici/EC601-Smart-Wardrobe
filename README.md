@@ -25,7 +25,7 @@ We have managed to achieve an accuracy of 81%.
 prediction_cnn.ipynb
 This python notebook contains the python code used to get the predictions of our trained model.
 
-Image_dataset:
+Image_dataset: The folder image_resized contains our dataset.
 
 It is a dataset of 247 images(200 * 200 pixels each) in 5 categories:
 0-Dress(55 images)
