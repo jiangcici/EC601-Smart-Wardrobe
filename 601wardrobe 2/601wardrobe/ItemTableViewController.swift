@@ -30,14 +30,8 @@ class ItemTableViewController: UITableViewController {
         
         // Use the edit button item provided by the table view controller.
         //navigationItem.rightBarButtonItem = editButtonItem
-        // Load any saved meals, otherwise load sample data.
-        if let savedItems = loadItems() {
-            items += savedItems
-        }
-        else {
-            // Load the sample data.
-            loadSampleItems()
-        }
+
+        loadSampleItems()
     }
 
     override func didReceiveMemoryWarning() {
@@ -129,13 +123,8 @@ class ItemTableViewController: UITableViewController {
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
                 tableView.endUpdates()
             }
-            
-            // Save the meals.
-            saveItems()
         }
     }
-    
-    //MARK: Private Methods
     
     private func loadSampleItems(){
         
@@ -154,25 +143,11 @@ class ItemTableViewController: UITableViewController {
         
     }
     
-    private func saveItems() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(items, toFile: Item.ArchiveURL.path)
-        if isSuccessfulSave {
-            os_log("Items successfully saved.", log: OSLog.default, type: .debug)
-        } else {
-            os_log("Failed to save items...", log: OSLog.default, type: .error)
-        }
-    }
-    
-    private func loadItems() -> [Item]?  {
-        return NSKeyedUnarchiver.unarchiveObject(withFile: Item.ArchiveURL.path) as? [Item]
-    }
-    
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
             items.remove(at: indexPath.row)
-            saveItems()
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
