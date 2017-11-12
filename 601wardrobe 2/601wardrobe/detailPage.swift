@@ -10,6 +10,15 @@ import UIKit
 import os.log
 import Firebase
 import FirebaseDatabase
+import CoreML
+
+enum Species {
+    case Dress
+    case Heel
+    case Shoe
+    case Tee
+    case Trouser
+}
 
 class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
@@ -151,6 +160,10 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         }
         
         photoImageView.image = selectedImage
+        let species = self.predict(image: selectedImage)
+        
+        itemDetailText.text = self.resultString(species: species)
+        
         
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
@@ -169,5 +182,61 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         let text = itemNameText.text ?? ""
         saveButton.isEnabled = !text.isEmpty
     }
+    
+    
+    
+    ///////////////Machine Learning Implemented/////////////////////
+    private let ml = modelclothings()
+    private let trainedImageSize = CGSize(width: 200, height: 200)
+    
+    func predict(image: UIImage) -> Species? {
+        do {
+            if let resizedImage = resize(image: image, newSize: trainedImageSize), let pixelBuffer = resizedImage.toCVPixelBuffer() {
+                let prediction = try ml.prediction(data: pixelBuffer)
+                if prediction.species[0].intValue == 1 {
+                    return .Dress
+                } else if prediction.species[1].intValue == 1 {
+                    return .Heel
+                } else if prediction.species[2].intValue == 1 {
+                    return .Shoe
+                } else if prediction.species[3].intValue == 1 {
+                    return .Tee
+                } else if prediction.species[4].intValue == 1 {
+                    return .Trouser
+                }
+        }
+        } catch {
+            print("Error while doing predictions: \(error)")
+        }
+        
+        return nil
+    }
+    
+    func resize(image: UIImage, newSize: CGSize) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return newImage
+    }
+    
+    func resultString(species: Species?) -> String {
+        if let species = species {
+            if species == .Dress {
+                return "dress"
+            } else if species == .Heel {
+                return "heel"
+            } else if species == .Shoe {
+                return "shoe"
+            } else if species == .Tee {
+                return "t-shirt"
+            } else if species == .Trouser {
+                return "trouser"
+            }
+        }
+        
+        return "doesn't belong to any of the categories"
+    }
+    
     
 }
