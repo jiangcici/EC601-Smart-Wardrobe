@@ -16,12 +16,11 @@ class ItemTableViewController: UITableViewController {
     var items = [Item]()
 
     @IBAction func Edit(_ sender: UIBarButtonItem) {
-        tableView.setEditing(!tableView.isEditing, animated: true)
-        
+        tableView.isEditing = !tableView.isEditing
         if tableView.isEditing {
-            self.editButtonItem.title = "Done"
+            sender.title = "Done"
         } else {
-            self.editButtonItem.title = "Edit"
+            sender.title = "Edit"
         }
     }
     
@@ -38,6 +37,7 @@ class ItemTableViewController: UITableViewController {
             // Load the sample data.
             loadSampleItems()
         }
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -169,11 +169,12 @@ class ItemTableViewController: UITableViewController {
     
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
+        if editingStyle == UITableViewCellEditingStyle.delete {
             // Delete the row from the data source
             items.remove(at: indexPath.row)
             saveItems()
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.reloadData()
+            //tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
@@ -184,5 +185,7 @@ class ItemTableViewController: UITableViewController {
         // Return false if you do not want the specified item to be editable.
         return true
     }
+    
+
 
 }

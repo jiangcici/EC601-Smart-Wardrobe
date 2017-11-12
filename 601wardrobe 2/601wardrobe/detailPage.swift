@@ -94,7 +94,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         
         //ref = Database.database().reference()
         
-        //updateSaveButtonState()
+        updateSaveButtonState()
         // Do any additional setup after loading the view.
     }
     
@@ -106,7 +106,13 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         return true
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // Disable the Save button while editing.
+        saveButton.isEnabled = false
+    }
+    
     func textFieldDidEndEditing(_ textField: UITextField) {
+        updateSaveButtonState()
     }
     
     //MARK: Navigation
@@ -158,10 +164,10 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     
     //MARK: Private Methods
     
-//    private func updateSaveButtonState() {
-//        // Disable the Save button if the text field is empty.
-//        let text = itemNameText.text ?? ""
-//        saveButton.isEnabled = !text.isEmpty
-//    }
+    private func updateSaveButtonState() {
+        // Disable the Save button if the text field is empty.
+        let text = itemNameText.text ?? ""
+        saveButton.isEnabled = !text.isEmpty
+    }
     
 }
