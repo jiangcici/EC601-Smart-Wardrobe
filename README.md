@@ -24,10 +24,16 @@ We have managed to achieve an accuracy of 81%.
 
 prediction_cnn.ipynb
 This python notebook contains the python code used to get the predictions of our trained model.
+ 
+train.py
+This contains the code to create a 200* 200 grayscale image dataset from our existing dataset and then trains the model.It saves the trained model.
+
+converter.py
+This python code converts the saved keras model into a coreml model using the coreml python tools. The resultant coreml model can be directly integrated into the ios app.
 
 Image_dataset: The folder image_resized contains our dataset.
 
-It is a dataset of 247 images(200 * 200 pixels each) in 5 categories:
+It is a dataset of 246 images(200 * 200 pixels each) in 5 categories:
 0-Dress(55 images)
 1-Heels(38 images)
 2-Shoes(50 images)
