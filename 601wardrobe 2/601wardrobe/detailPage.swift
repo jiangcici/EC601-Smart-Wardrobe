@@ -9,6 +9,7 @@
 import UIKit
 import os.log
 import Firebase
+import FirebaseAuth
 import FirebaseDatabase
 import CoreML
 
@@ -28,7 +29,8 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     @IBOutlet weak var saveButton: UIBarButtonItem!
     @IBOutlet weak var itemTypeLabel: UILabel!
     
-    //var ref: DatabaseReference!
+    var ref: DatabaseReference?
+    var user = Auth.auth().currentUser
     
     @IBAction func cancel(_ sender: UIBarButtonItem) {
         
@@ -87,10 +89,12 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
         picker.delegate = self
+        picker.allowsEditing = true
         present(picker, animated: true, completion: nil)
     }
     
     //var items: Items?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +108,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
             itemTypeLabel.text = item.type
         }
         
-        //ref = Database.database().reference()
+     ref = Database.database().reference()
         
         updateSaveButtonState()
         // Do any additional setup after loading the view.
@@ -148,7 +152,8 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         // Set the meal to be passed to MealTableViewController after the unwind segue.
         item = Item(name: name, photo: photo, detail: detail, pref: 5, type: type)
         
-        //self.ref.child("users").childByAutoId().setValue(["name": itemNameText.text],["detail": itemDetailText.text])
+        
+        self.ref?.child("users").child((user?.uid)!).setValue(["Detail": detail, "Name": name, "Type": type])
     }
     
     //MARK: Actions
@@ -158,7 +163,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
+        guard let selectedImage = info["UIImagePickerControllerEditedImage"] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
         
