@@ -9,9 +9,12 @@
 /* Begin PBXBuildFile section */
 		5207F99844E128D9245C348F /* Pods_601wardrobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87715E8400332E0BA20173FA /* Pods_601wardrobe.framework */; };
 		E339DCED1FA59540009C427A /* auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339DCEC1FA59540009C427A /* auth.swift */; };
+		E33BECA21FD46BAD0045A97C /* mc.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E33BECA11FD46BAD0045A97C /* mc.mlmodel */; };
 		E33E30D21FA52B6700AE623A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A299961F9C114400876E62 /* Info.plist */; };
 		E35544E31FA5AC1A00A62C4B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35544E21FA5AC1A00A62C4B /* DataService.swift */; };
 		E355D8951FA61F3400C770E8 /* SignOutCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355D8941FA61F3400C770E8 /* SignOutCode.swift */; };
+		E37EE7501FB8BBB600057719 /* modelclothings.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E37EE74F1FB8BBB600057719 /* modelclothings.mlmodel */; };
+		E37EE7521FB8C11500057719 /* UIImage_CVPixelBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E37EE7511FB8C11500057719 /* UIImage_CVPixelBuffer.swift */; };
 		E39977B11FA67DE00025C716 /* ItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39977AE1FA67DE00025C716 /* ItemTableViewController.swift */; };
 		E39977B21FA67DE00025C716 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39977AF1FA67DE00025C716 /* ItemTableViewCell.swift */; };
 		E39977B31FA67DE00025C716 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E39977B01FA67DE00025C716 /* Item.swift */; };
@@ -21,6 +24,7 @@
 		E3A299951F9C114400876E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A299931F9C114400876E62 /* LaunchScreen.storyboard */; };
 		E3EDD41F1F9FAEFB00A0E887 /* detailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EDD41E1F9FAEFB00A0E887 /* detailPage.swift */; };
 		E3F59F8A1FA5181A00698730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F59F891FA5181A00698730 /* GoogleService-Info.plist */; };
+		E3FF151B1FD269D500F89E57 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,8 +32,11 @@
 		4C448A303C534D23478BF764 /* Pods-601wardrobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-601wardrobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-601wardrobe/Pods-601wardrobe.debug.xcconfig"; sourceTree = "<group>"; };
 		87715E8400332E0BA20173FA /* Pods_601wardrobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_601wardrobe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E339DCEC1FA59540009C427A /* auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auth.swift; sourceTree = "<group>"; };
+		E33BECA11FD46BAD0045A97C /* mc.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mc.mlmodel; sourceTree = SOURCE_ROOT; };
 		E35544E21FA5AC1A00A62C4B /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E355D8941FA61F3400C770E8 /* SignOutCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutCode.swift; sourceTree = "<group>"; };
+		E37EE74F1FB8BBB600057719 /* modelclothings.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = modelclothings.mlmodel; sourceTree = SOURCE_ROOT; };
+		E37EE7511FB8C11500057719 /* UIImage_CVPixelBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImage_CVPixelBuffer.swift; sourceTree = "<group>"; };
 		E39977AE1FA67DE00025C716 /* ItemTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewController.swift; sourceTree = "<group>"; };
 		E39977AF1FA67DE00025C716 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		E39977B01FA67DE00025C716 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
@@ -41,6 +48,7 @@
 		E3A299961F9C114400876E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3EDD41E1F9FAEFB00A0E887 /* detailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPage.swift; sourceTree = "<group>"; };
 		E3F59F891FA5181A00698730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,11 +105,15 @@
 				E39977AF1FA67DE00025C716 /* ItemTableViewCell.swift */,
 				E39977AE1FA67DE00025C716 /* ItemTableViewController.swift */,
 				E3EDD41E1F9FAEFB00A0E887 /* detailPage.swift */,
+				E37EE7511FB8C11500057719 /* UIImage_CVPixelBuffer.swift */,
 				E3A2998A1F9C114400876E62 /* AppDelegate.swift */,
-				E3A2998E1F9C114400876E62 /* Main.storyboard */,
 				E339DCEC1FA59540009C427A /* auth.swift */,
 				E355D8941FA61F3400C770E8 /* SignOutCode.swift */,
 				E35544E21FA5AC1A00A62C4B /* DataService.swift */,
+				E3A2998E1F9C114400876E62 /* Main.storyboard */,
+				E33BECA11FD46BAD0045A97C /* mc.mlmodel */,
+				E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */,
+				E37EE74F1FB8BBB600057719 /* modelclothings.mlmodel */,
 				E3A299911F9C114400876E62 /* Assets.xcassets */,
 				E3A299931F9C114400876E62 /* LaunchScreen.storyboard */,
 				E3A299961F9C114400876E62 /* Info.plist */,
@@ -145,7 +157,7 @@
 				TargetAttributes = {
 					E3A299861F9C114300876E62 = {
 						CreatedOnToolsVersion = 9.0.1;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -250,13 +262,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39977B31FA67DE00025C716 /* Item.swift in Sources */,
+				E3FF151B1FD269D500F89E57 /* Resnet50.mlmodel in Sources */,
 				E39977B21FA67DE00025C716 /* ItemTableViewCell.swift in Sources */,
 				E339DCED1FA59540009C427A /* auth.swift in Sources */,
 				E3A2998B1F9C114400876E62 /* AppDelegate.swift in Sources */,
 				E35544E31FA5AC1A00A62C4B /* DataService.swift in Sources */,
+				E33BECA21FD46BAD0045A97C /* mc.mlmodel in Sources */,
 				E355D8951FA61F3400C770E8 /* SignOutCode.swift in Sources */,
+				E37EE7501FB8BBB600057719 /* modelclothings.mlmodel in Sources */,
 				E39977B11FA67DE00025C716 /* ItemTableViewController.swift in Sources */,
 				E3EDD41F1F9FAEFB00A0E887 /* detailPage.swift in Sources */,
+				E37EE7521FB8C11500057719 /* UIImage_CVPixelBuffer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,8 +410,9 @@
 			baseConfigurationReference = 4C448A303C534D23478BF764 /* Pods-601wardrobe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X66SZNLZ22;
 				INFOPLIST_FILE = 601wardrobe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "build.-01wardrobe";
@@ -411,8 +428,9 @@
 			baseConfigurationReference = 07ADDF82E0E75815F3E9E864 /* Pods-601wardrobe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = X66SZNLZ22;
 				INFOPLIST_FILE = 601wardrobe/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "build.-01wardrobe";

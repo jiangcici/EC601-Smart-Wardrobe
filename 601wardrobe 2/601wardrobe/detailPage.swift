@@ -158,16 +158,25 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [String : Any])
     {
-        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage else {
-            fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
-        }
+        guard let selectedImage = info[UIImagePickerControllerOriginalImage] as? UIImage,
+            let resized = selectedImage.resize(size: CGSize(width: 224, height: 224)) else {
+                
+                return
+            }
+            //fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         
-        photoImageView.image = selectedImage
-        let species = self.predict(image: selectedImage)
+        //photoImageView.image = selectedImage
+        photoImageView.image = resized
+        //let species = self.predict(image: selectedImage)
         
         //itemDetailText.text = self.resultString(species: species)
-        itemTypeLabel.text = self.resultString(species: species)
+        //itemTypeLabel.text = self.resultString(species: species)
+        guard let image2 = photoImageView.image, let ref = image2.buffer else {
+            
+            return
+        }
         
+        resnet(ref: ref)
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
         
@@ -189,93 +198,119 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
     
     
     ///////////////Machine Learning Implemented/////////////////////
-
-    private let ml = modelclothings()
-    private let trainedImageSize = CGSize(width: 200, height: 200)
     
-    func predict(image: UIImage) -> Species? {
-        do {
-            if let resizedImage = resize(image: image, newSize: trainedImageSize),  let pixelBuffer = resizedImage.pixelBufferGray(width: 200, height: 200) {
-                let prediction = try ml.prediction(data: pixelBuffer)
+    let resnetModel = Resnet50()
+    
+    func resnet(ref: CVPixelBuffer) {
+            
+            do {
+                
+                // prediction
+                let output = try resnetModel.prediction(image: ref)
+                
+                // sort classes by probability
+                let sorted = output.classLabelProbs.sorted(by: { (lhs, rhs) -> Bool in
                     
-                if prediction.species[0].intValue == 1 {
-                    return .Dress
-                } else if prediction.species[1].intValue == 1 {
-                    return .Heel
-                } else if prediction.species[2].intValue == 1 {
-                    return .Shoe
-                } else if prediction.species[3].intValue == 1 {
-                    return .Tee
-                } else if prediction.species[4].intValue == 1 {
-                    return .Trouser
-                }
-        }
-        } catch {
-            print("Error while doing predictions: \(error)")
-        }
-        
-        return nil
-    }
-    
-    func resize(image: UIImage, newSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        return newImage
-    }
-    
-    func resultString(species: Species?) -> String {
-        if let species = species {
-            if species == .Dress {
-                return "dress"
-            } else if species == .Heel {
-                return "heel"
-            } else if species == .Shoe {
-                return "shoe"
-            } else if species == .Tee {
-                return "t-shirt"
-            } else if species == .Trouser {
-                return "trouser"
+                    return lhs.value > rhs.value
+                })
+                
+                itemTypeLabel.text = output.classLabel
+                
+                print(output.classLabel)
+                //print(output.classLabelProbs)
+                
+            } catch {
+                
+                print(error)
             }
         }
-        
-        return "doesn't belong to any of the categories"
-    }
     
-    private func convertImageToGrayScale(image: UIImage) -> UIImage? {
-        // Create image rectangle with current image width/height
-        let heightInPoints = image.size.height
-        let heightInPixels = heightInPoints * image.scale
-        
-        let widthInPoints = image.size.width
-        let widthInPixels = widthInPoints * image.scale
-        let imageRect: CGRect = CGRect(x:0,y:0, width:widthInPixels, height:heightInPixels)
-        
-        // Grayscale color space
-        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceGray()
-        
-        // Create bitmap content with current image size and grayscale colorspace
-        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
-        
-        //let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.None.rawValue)
-        guard let context = CGContext.init(data: nil, width: Int(image.size.width), height: Int(image.size.height), bitsPerComponent:8, bytesPerRow: 0, space: colorSpace, bitmapInfo: UInt32(bitmapInfo.rawValue)) else {
-            // cannot create context - handle error
-            fatalError("Unexpected error")
-        }
-        
-        // Draw image into current context, with specified rectangle using previously defined context (with grayscale colorspace)
-        image.draw(in: imageRect)
-        
-        // Create bitmap image info from pixel data in current context
-        let imageRef: CGImage = context.makeImage()!
-        
-        // Create a new UIImage object
-        let newImage: UIImage = UIImage(cgImage: imageRef)
-        
-        // Return the new grayscale image
-        return newImage
-    }
+//    private let ml = modelclothings()
+//    private let trainedImageSize = CGSize(width: 200, height: 200)
+//
+//    func predict(image: UIImage) -> Species? {
+//        do {
+//            if let resizedImage = resize(image: image, newSize: trainedImageSize),  let pixelBuffer = resizedImage.pixelBufferGray(width: 200, height: 200) {
+//                let prediction = try ml.prediction(data: pixelBuffer)
+//
+//                if prediction.species[0].intValue == 1 {
+//                    return .Dress
+//                } else if prediction.species[1].intValue == 1 {
+//                    return .Heel
+//                } else if prediction.species[2].intValue == 1 {
+//                    return .Shoe
+//                } else if prediction.species[3].intValue == 1 {
+//                    return .Tee
+//                } else if prediction.species[4].intValue == 1 {
+//                    return .Trouser
+//                }
+//        }
+//        } catch {
+//            print("Error while doing predictions: \(error)")
+//        }
+//
+//        return nil
+//    }
+//
+//    func resize(image: UIImage, newSize: CGSize) -> UIImage? {
+//        UIGraphicsBeginImageContextWithOptions(newSize, false, 0.0)
+//        image.draw(in: CGRect(x: 0, y: 0, width: newSize.width, height: newSize.height))
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//        return newImage
+//    }
+//
+//    func resultString(species: Species?) -> String {
+//        if let species = species {
+//            if species == .Dress {
+//                return "dress"
+//            } else if species == .Heel {
+//                return "heel"
+//            } else if species == .Shoe {
+//                return "shoe"
+//            } else if species == .Tee {
+//                return "t-shirt"
+//            } else if species == .Trouser {
+//                return "trouser"
+//            }
+//        }
+//
+//        return "doesn't belong to any of the categories"
+//    }
+//
+//    private func convertImageToGrayScale(image: UIImage) -> UIImage? {
+//        // Create image rectangle with current image width/height
+//        let heightInPoints = image.size.height
+//        let heightInPixels = heightInPoints * image.scale
+//
+//        let widthInPoints = image.size.width
+//        let widthInPixels = widthInPoints * image.scale
+//        let imageRect: CGRect = CGRect(x:0,y:0, width:widthInPixels, height:heightInPixels)
+//
+//        // Grayscale color space
+//        let colorSpace: CGColorSpace = CGColorSpaceCreateDeviceGray()
+//
+//        // Create bitmap content with current image size and grayscale colorspace
+//        let bitmapInfo = CGBitmapInfo(rawValue: CGImageAlphaInfo.premultipliedLast.rawValue)
+//
+//        //let bitmapInfo = CGBitmapInfo(CGImageAlphaInfo.None.rawValue)
+//        guard let context = CGContext.init(data: nil, width: Int(image.size.width), height: Int(image.size.height), bitsPerComponent:8, bytesPerRow: 0, space: colorSpace, bitmapInfo: UInt32(bitmapInfo.rawValue)) else {
+//            // cannot create context - handle error
+//            fatalError("Unexpected error")
+//        }
+//
+//        // Draw image into current context, with specified rectangle using previously defined context (with grayscale colorspace)
+//        image.draw(in: imageRect)
+//
+//        // Create bitmap image info from pixel data in current context
+//        let imageRef: CGImage = context.makeImage()!
+//
+//        // Create a new UIImage object
+//        let newImage: UIImage = UIImage(cgImage: imageRef)
+//
+//        // Return the new grayscale image
+//        return newImage
+//    }
     
     
 }

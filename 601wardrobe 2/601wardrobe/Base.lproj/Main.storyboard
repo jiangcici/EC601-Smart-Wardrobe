@@ -115,7 +115,7 @@
             </objects>
             <point key="canvasLocation" x="2463" y="134"/>
         </scene>
-        <!--Main-->
+        <!--Home-->
         <scene sceneID="XON-oA-7Dy">
             <objects>
                 <viewController id="Urj-q2-sKZ" customClass="SignOutCode" customModule="_01wardrobe" customModuleProvider="target" sceneMemberID="viewController">
@@ -146,12 +146,9 @@
                                     <constraint firstAttribute="width" constant="187" id="qZA-aL-Fau"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="29"/>
-                                <state key="normal" title="Add">
+                                <state key="normal" title="Inventories">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
-                                <connections>
-                                    <segue destination="BD6-7J-UCZ" kind="presentation" identifier="MainAdd" id="7yq-VA-Zks"/>
-                                </connections>
                             </button>
                             <navigationBar contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FD6-fv-ZVK">
                                 <rect key="frame" x="0.0" y="622" width="375" height="44"/>
@@ -175,7 +172,7 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="XN3-KT-YbD" firstAttribute="leading" secondItem="pAQ-Ya-WII" secondAttribute="leading" constant="94" id="AuT-Cs-W0u"/>
                             <constraint firstItem="XN3-KT-YbD" firstAttribute="height" secondItem="bew-2s-3IX" secondAttribute="height" id="DCU-Lu-Toi"/>
@@ -193,7 +190,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="pAQ-Ya-WII"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Main" id="oE4-3B-Vjy"/>
+                    <navigationItem key="navigationItem" title="Home" id="oE4-3B-Vjy"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPy-bP-0w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,7 +210,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obv-5c-Fdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-655" y="931"/>
+            <point key="canvasLocation" x="-1498" y="944"/>
         </scene>
         <!--Auth-->
         <scene sceneID="UZY-jf-Da8">
@@ -353,7 +350,7 @@
         <!--Navigation Controller-->
         <scene sceneID="gHz-3i-AQZ">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="y2z-BA-GDT" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" toolbarHidden="NO" id="y2z-BA-GDT" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="45C-sY-IGF">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
@@ -460,7 +457,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="fjb-aX-Jgi"/>
-        <segue reference="K0A-0h-FYE"/>
         <segue reference="wlo-Ou-BQc"/>
     </inferredMetricsTieBreakers>
 </document>

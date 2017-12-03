@@ -67,7 +67,7 @@ class ItemTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate item for the data source layout.
         let item = items[indexPath.row]
         
         cell.nameLabel.text = item.name
