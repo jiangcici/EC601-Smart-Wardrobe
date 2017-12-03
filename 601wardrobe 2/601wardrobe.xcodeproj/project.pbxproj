@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		5207F99844E128D9245C348F /* Pods_601wardrobe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 87715E8400332E0BA20173FA /* Pods_601wardrobe.framework */; };
 		E339DCED1FA59540009C427A /* auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = E339DCEC1FA59540009C427A /* auth.swift */; };
-		E33BECA21FD46BAD0045A97C /* mc.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E33BECA11FD46BAD0045A97C /* mc.mlmodel */; };
 		E33E30D21FA52B6700AE623A /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3A299961F9C114400876E62 /* Info.plist */; };
 		E35544E31FA5AC1A00A62C4B /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35544E21FA5AC1A00A62C4B /* DataService.swift */; };
 		E355D8951FA61F3400C770E8 /* SignOutCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = E355D8941FA61F3400C770E8 /* SignOutCode.swift */; };
@@ -32,7 +31,6 @@
 		4C448A303C534D23478BF764 /* Pods-601wardrobe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-601wardrobe.debug.xcconfig"; path = "Pods/Target Support Files/Pods-601wardrobe/Pods-601wardrobe.debug.xcconfig"; sourceTree = "<group>"; };
 		87715E8400332E0BA20173FA /* Pods_601wardrobe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_601wardrobe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E339DCEC1FA59540009C427A /* auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = auth.swift; sourceTree = "<group>"; };
-		E33BECA11FD46BAD0045A97C /* mc.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = mc.mlmodel; sourceTree = SOURCE_ROOT; };
 		E35544E21FA5AC1A00A62C4B /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		E355D8941FA61F3400C770E8 /* SignOutCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignOutCode.swift; sourceTree = "<group>"; };
 		E37EE74F1FB8BBB600057719 /* modelclothings.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = modelclothings.mlmodel; sourceTree = SOURCE_ROOT; };
@@ -111,7 +109,6 @@
 				E355D8941FA61F3400C770E8 /* SignOutCode.swift */,
 				E35544E21FA5AC1A00A62C4B /* DataService.swift */,
 				E3A2998E1F9C114400876E62 /* Main.storyboard */,
-				E33BECA11FD46BAD0045A97C /* mc.mlmodel */,
 				E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */,
 				E37EE74F1FB8BBB600057719 /* modelclothings.mlmodel */,
 				E3A299911F9C114400876E62 /* Assets.xcassets */,
@@ -267,7 +264,6 @@
 				E339DCED1FA59540009C427A /* auth.swift in Sources */,
 				E3A2998B1F9C114400876E62 /* AppDelegate.swift in Sources */,
 				E35544E31FA5AC1A00A62C4B /* DataService.swift in Sources */,
-				E33BECA21FD46BAD0045A97C /* mc.mlmodel in Sources */,
 				E355D8951FA61F3400C770E8 /* SignOutCode.swift in Sources */,
 				E37EE7501FB8BBB600057719 /* modelclothings.mlmodel in Sources */,
 				E39977B11FA67DE00025C716 /* ItemTableViewController.swift in Sources */,
