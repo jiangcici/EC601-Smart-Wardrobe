@@ -47,5 +47,10 @@
 	<string>We want to select image from Library</string>
 	<key>NSCameraUsageDescription</key>
 	<string>We want to use camera</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

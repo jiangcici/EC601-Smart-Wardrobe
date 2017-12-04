@@ -23,7 +23,6 @@
 		E3A299951F9C114400876E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E3A299931F9C114400876E62 /* LaunchScreen.storyboard */; };
 		E3EDD41F1F9FAEFB00A0E887 /* detailPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3EDD41E1F9FAEFB00A0E887 /* detailPage.swift */; };
 		E3F59F8A1FA5181A00698730 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E3F59F891FA5181A00698730 /* GoogleService-Info.plist */; };
-		E3FF151B1FD269D500F89E57 /* Resnet50.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,7 +45,6 @@
 		E3A299961F9C114400876E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E3EDD41E1F9FAEFB00A0E887 /* detailPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailPage.swift; sourceTree = "<group>"; };
 		E3F59F891FA5181A00698730 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +107,6 @@
 				E355D8941FA61F3400C770E8 /* SignOutCode.swift */,
 				E35544E21FA5AC1A00A62C4B /* DataService.swift */,
 				E3A2998E1F9C114400876E62 /* Main.storyboard */,
-				E3FF15191FD269D500F89E57 /* Resnet50.mlmodel */,
 				E37EE74F1FB8BBB600057719 /* modelclothings.mlmodel */,
 				E3A299911F9C114400876E62 /* Assets.xcassets */,
 				E3A299931F9C114400876E62 /* LaunchScreen.storyboard */,
@@ -259,7 +256,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E39977B31FA67DE00025C716 /* Item.swift in Sources */,
-				E3FF151B1FD269D500F89E57 /* Resnet50.mlmodel in Sources */,
 				E39977B21FA67DE00025C716 /* ItemTableViewCell.swift in Sources */,
 				E339DCED1FA59540009C427A /* auth.swift in Sources */,
 				E3A2998B1F9C114400876E62 /* AppDelegate.swift in Sources */,
