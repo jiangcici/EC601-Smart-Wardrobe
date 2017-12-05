@@ -36,7 +36,11 @@ class suggestionVC: UIViewController {
     
     func assignArray() {
         wardrobe = loadItems()!
-        print(wardrobe[0].type)
+        if wardrobe.isEmpty {
+            print("Empty!")
+        } else {
+            print(wardrobe[0].type)
+        }
     }
     
     
