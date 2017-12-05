@@ -151,8 +151,6 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         // Set the meal to be passed to MealTableViewController after the unwind segue.
         item = Item(name: name, photo: photo, detail: detail, pref: 5, type: type)
         
-        
-//        self.ref?.child("users").child((user?.uid)!).setValue(["Detail": detail, "Name": name, "Type": type])
         self.ref?.child("users").child((user?.uid)!).child(name).setValue(["Detail": detail, "Type": type])
     }
     

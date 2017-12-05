@@ -77,8 +77,8 @@ class SignOutCode: UIViewController {
             if let temp = main["temp"] as? Double {
                 self.temp2 = ((temp*9)/5)-459.67
                 self.temp3 = temp-273.15
-                cityTempLabel.text = String(format: "%.1f", temp2!) + String("  F")
-                cityTempLabel2.text = String(format: "%.1f", temp3!) + String("  C")
+                cityTempLabel.text = String(format: "%.1f", temp2!) + String("  °F")
+                cityTempLabel2.text = String(format: "%.1f", temp3!) + String("  °C")
             }
         }
     }
