@@ -13,7 +13,7 @@ import FirebaseAuth
 import FirebaseDatabase
 
 
-class SignOutCode: UIViewController {
+class SignOutCode: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var cityNameTF: UITextField!
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -28,6 +28,10 @@ class SignOutCode: UIViewController {
     @IBAction func refreshClicked(_ sender: Any) {
         let newstring = cityNameTF.text!.replacingOccurrences(of: " ", with: "%20")
         getWeatherData(urlString: "http://api.openweathermap.org/data/2.5/weather?q=" + newstring + ",US&APPID=f22eb93db195b138f3e28fd4325b43b1")
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     override func viewDidLoad() {

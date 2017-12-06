@@ -158,7 +158,7 @@
                                 </constraints>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES" textContentType="location"/>
+                                <textInputTraits key="textInputTraits" textContentType="location"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Db6-nk-sg9">
                                 <rect key="frame" x="123" y="150" width="135" height="43"/>
@@ -604,7 +604,7 @@
         <image name="wardrobe" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mAi-33-hSl"/>
+        <segue reference="fjb-aX-Jgi"/>
         <segue reference="wlo-Ou-BQc"/>
     </inferredMetricsTieBreakers>
 </document>

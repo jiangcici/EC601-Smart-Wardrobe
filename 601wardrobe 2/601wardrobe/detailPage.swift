@@ -188,6 +188,9 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         saveButton.isEnabled = !text.isEmpty
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
 
 
     ///////////////Machine Learning Implemented/////////////////////

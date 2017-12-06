@@ -37,7 +37,6 @@ class auth: UIViewController {
             performSegue(withIdentifier: "goToHome", sender: nil)
         }
     }
-
     
     func CompleteSignIn (id: String) {
         let keyChain = DataService().keyChain

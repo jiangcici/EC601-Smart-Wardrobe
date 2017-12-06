@@ -53,6 +53,11 @@ class suggestionVC: UIViewController {
             emptylabel.text = ""
         }
     }
+    
+    func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     func get_clothes(with tempsent: Double){
        if tempsent > 10{
         for i in 0...10{
