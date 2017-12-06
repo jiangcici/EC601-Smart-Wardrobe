@@ -9,7 +9,9 @@
 import UIKit
 import os.log
 
+
 class ItemTableViewController: UITableViewController {
+
     
     //MARK: Properties
     

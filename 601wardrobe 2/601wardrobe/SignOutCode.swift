@@ -1,7 +1,7 @@
 //
 //  SignOutCode.swift
 //  601wardrobe
-//
+//  Modified by Ashley on 12/5/17
 //  Created by Tommy Zheng on 10/29/17.
 //  Copyright © 2017 Tommy Zheng. All rights reserved.
 //
@@ -12,8 +12,9 @@ import KeychainSwift
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignOutCode: UIViewController {
 
+class SignOutCode: UIViewController {
+    
     @IBOutlet weak var cityNameTF: UITextField!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityTempLabel: UILabel!
@@ -82,5 +83,14 @@ class SignOutCode: UIViewController {
             }
         }
     }
-
+    
+    @IBAction func suggestPressed(_ sender: Any) {
+        var temp_to_send: Double
+        temp_to_send = temp3!
+        let myVC = storyboard?.instantiateViewController(withIdentifier: "suggestionVC") as!
+            suggestionVC
+        myVC.temp_sent = temp_to_send
+        navigationController?.pushViewController(myVC, animated: true)
+    }
+    
 }

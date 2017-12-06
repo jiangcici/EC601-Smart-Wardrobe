@@ -114,7 +114,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tdw-0e-cOk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="zeJ-2O-sQ9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2463" y="134"/>
+            <point key="canvasLocation" x="2650" y="154"/>
         </scene>
         <!--Home-->
         <scene sceneID="XON-oA-7Dy">
@@ -183,11 +183,18 @@
                                                 <action selector="SignOut:" destination="Urj-q2-sKZ" id="JLj-rE-ryO"/>
                                             </connections>
                                         </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Wardrobe" id="oHR-7I-fHY">
-                                            <connections>
-                                                <segue destination="RX8-da-CcN" kind="show" id="fjb-aX-Jgi"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Wardrobe" image="wardrobe" id="oHR-7I-fHY">
+                                                <connections>
+                                                    <segue destination="RX8-da-CcN" kind="show" id="fjb-aX-Jgi"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem title="Inventory" image="inventory" id="ODm-a5-8QX">
+                                                <connections>
+                                                    <segue destination="cb0-bJ-LAw" kind="show" id="ZBo-ER-0j6"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -202,7 +209,7 @@
                                     <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="s3e-qE-hyx" kind="show" id="dLD-mS-Dmc"/>
+                                    <action selector="suggestPressed:" destination="Urj-q2-sKZ" eventType="touchUpInside" id="uLk-fK-yaa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -246,23 +253,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OPy-bP-0w7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-554.39999999999998" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-209" y="134"/>
+        </scene>
+        <!--InventoryVC-->
+        <scene sceneID="GOd-Ug-lOb">
+            <objects>
+                <tableViewController id="cb0-bJ-LAw" customClass="inventoryVC" customModule="_01wardrobe" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="fae-TN-rGu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="invtcell" id="rf7-dx-UmJ">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rf7-dx-UmJ" id="UEQ-Km-KmW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cb0-bJ-LAw" id="z4K-6x-yWA"/>
+                            <outlet property="delegate" destination="cb0-bJ-LAw" id="DGm-6M-Un9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gsO-vN-Xc6"/>
+                    <connections>
+                        <segue destination="LGa-AI-klO" kind="show" identifier="invttoind" id="KA6-ud-MHS"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wqg-pT-Swj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1724" y="996"/>
+        </scene>
+        <!--IteminventVC-->
+        <scene sceneID="ynO-Fm-Cxt">
+            <objects>
+                <viewController id="LGa-AI-klO" customClass="iteminventVC" customModule="_01wardrobe" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pht-94-Cfj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="UC3-y8-Dn8"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LHj-9g-M9x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-743" y="995"/>
         </scene>
         <!--Suggestions-->
         <scene sceneID="gWZ-vO-Oqe">
             <objects>
-                <viewController id="s3e-qE-hyx" customClass="suggestionVC" customModule="_01wardrobe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="suggestionVC" id="s3e-qE-hyx" customClass="suggestionVC" customModule="_01wardrobe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5M4-FK-7Gv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gry-c2-E94">
+                                <rect key="frame" x="162" y="204" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ceA-WS-cBi">
+                                <rect key="frame" x="72" y="294" width="230" height="230"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVA-lm-vht">
+                                <rect key="frame" x="16" y="89" width="343" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gHb-v2-F8m"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="ceA-WS-cBi" firstAttribute="leading" secondItem="iQl-a8-u1a" secondAttribute="leading" constant="72" id="243-JU-bRu"/>
+                            <constraint firstItem="yVA-lm-vht" firstAttribute="top" secondItem="iQl-a8-u1a" secondAttribute="top" constant="69" id="3e0-BZ-d2T"/>
+                            <constraint firstItem="yVA-lm-vht" firstAttribute="centerX" secondItem="ceA-WS-cBi" secondAttribute="centerX" id="5nS-LK-CtS"/>
+                            <constraint firstItem="ceA-WS-cBi" firstAttribute="top" secondItem="Gry-c2-E94" secondAttribute="bottom" constant="69" id="JmU-JF-Nt9"/>
+                            <constraint firstItem="Gry-c2-E94" firstAttribute="leading" secondItem="iQl-a8-u1a" secondAttribute="leading" constant="162" id="Lyv-5j-l4Z"/>
+                            <constraint firstItem="Gry-c2-E94" firstAttribute="top" secondItem="yVA-lm-vht" secondAttribute="bottom" constant="75" id="NKC-x9-QV2"/>
+                            <constraint firstItem="yVA-lm-vht" firstAttribute="trailing" secondItem="5M4-FK-7Gv" secondAttribute="trailingMargin" id="dG0-bA-I9C"/>
+                            <constraint firstItem="yVA-lm-vht" firstAttribute="leading" secondItem="5M4-FK-7Gv" secondAttribute="leadingMargin" id="rW8-Mf-EKq"/>
+                            <constraint firstItem="iQl-a8-u1a" firstAttribute="bottom" secondItem="ceA-WS-cBi" secondAttribute="bottom" constant="143" id="wHU-TC-Rk8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="iQl-a8-u1a"/>
                     </view>
                     <navigationItem key="navigationItem" title="Suggestions" id="GF6-NG-sYK"/>
+                    <connections>
+                        <outlet property="emptylabel" destination="yVA-lm-vht" id="0yG-oF-KIW"/>
+                        <outlet property="suggestedCloths" destination="ceA-WS-cBi" id="P2R-uJ-FHW"/>
+                        <outlet property="tempLabel" destination="Gry-c2-E94" id="zqS-TG-pPN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="obv-5c-Fdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-554" y="974"/>
+            <point key="canvasLocation" x="-81" y="995"/>
         </scene>
         <!--Auth-->
         <scene sceneID="UZY-jf-Da8">
@@ -400,7 +490,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bx-YM-iMy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="943"/>
+            <point key="canvasLocation" x="1876" y="1022.3388305847077"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gHz-3i-AQZ">
@@ -486,7 +576,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Cm-cz-TcA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="996" y="134"/>
+            <point key="canvasLocation" x="1538" y="155"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pcG-X2-Ic8">
@@ -504,15 +594,17 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gfo-kP-J7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="201" y="537"/>
+            <point key="canvasLocation" x="639" y="531"/>
         </scene>
     </scenes>
     <resources>
         <image name="Image" width="540" height="540"/>
         <image name="background1" width="372" height="696"/>
+        <image name="inventory" width="37" height="37"/>
+        <image name="wardrobe" width="37" height="37"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="mAi-33-hSl"/>
-        <segue reference="C0U-1U-91n"/>
+        <segue reference="wlo-Ou-BQc"/>
     </inferredMetricsTieBreakers>
 </document>
