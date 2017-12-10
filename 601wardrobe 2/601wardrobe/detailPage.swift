@@ -61,6 +61,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
             picker.delegate = self
             picker.cameraCaptureMode = .photo
             picker.modalPresentationStyle = .fullScreen
+            picker.allowsEditing = true
             present(picker,animated: true,completion: nil)
         } else {
             noCamera()
@@ -283,6 +284,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
 
 
 }
+
 //import UIKit
 //import os.log
 //import Firebase
@@ -552,7 +554,7 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
 //        // Return the new grayscale image
 //        return newImage
 //    }
-
-
+//
+//
 //}
 
