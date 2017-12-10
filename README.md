@@ -21,15 +21,9 @@ HOW TO RUN OUR CODE (YOU NEED XCODE/MAC SINCE OUR PROJECT IS IOS APP AND WRITTEN
 
 SOME SCREENSHOTS FROM OUR APP:
 
-<br>
-<img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1766.PNG" /> 
-<br>
-<img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1767.PNG" /> 
-<br>
-<img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1768.PNG" /> 
-<br>
-<img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1769.PNG" />
-<br>
+
+<img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1766.PNG" /> <img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1767.PNG" /> <img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1768.PNG" /> <img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1769.PNG" />
+
 
 cnn_our_dataset.ipynb
 This python notebook contains the keras CNN model that we have used to train our dataset. 
