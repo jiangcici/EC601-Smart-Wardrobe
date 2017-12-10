@@ -22,7 +22,7 @@ HOW TO RUN OUR CODE (YOU NEED XCODE/MAC SINCE OUR PROJECT IS IOS APP AND WRITTEN
 SOME SCREENSHOTS FROM OUR APP:
 
 <br>
-<img height="700" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1766.PNG" />
+<img height="200" src="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/App%20Screenshots/IMG_1766.PNG" />
 <br>
 
 cnn_our_dataset.ipynb
