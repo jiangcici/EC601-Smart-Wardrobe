@@ -20,7 +20,6 @@ HOW TO RUN OUR CODE (YOU NEED XCODE/MAC SINCE OUR PROJECT IS IOS APP AND WRITTEN
 - Last, build and run the code with a simulator in Xcode. 
 
 SOME SCREENSHOTS FROM OUR APP:
-![Wardrobe](/Users/czheng/Downloads/IMG_1766.PNG)
 
 cnn_our_dataset.ipynb
 This python notebook contains the keras CNN model that we have used to train our dataset. 
