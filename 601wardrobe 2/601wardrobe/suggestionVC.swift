@@ -42,7 +42,7 @@ class suggestionVC: UIViewController {
     }
  
     func assignArray() {
-        wardrobe = loadItems()!
+        wardrobe = (loadItems())!
         if wardrobe.isEmpty {
             emptylabel.text = "Please add more apparels to wardrobe"
             tempLabel.text = ""
@@ -61,7 +61,7 @@ class suggestionVC: UIViewController {
     func get_clothes(with tempsent: Double){
        if tempsent > 10{
         for i in 0...10{
-            if wardrobe[i].type == "dress"{
+            if wardrobe[i].type == "dress" || wardrobe[i].type == "shoe" {
                 print(">10")
                 print(wardrobe[i].type)
                 suggestedCloths.image = wardrobe[i].photo
@@ -74,7 +74,7 @@ class suggestionVC: UIViewController {
        }
        else {
         for i in 0...10{
-            if wardrobe[i].type == "t-shirt"{
+            if wardrobe[i].type == "t-shirt" || wardrobe[i].type == "shoe" {
                 print("<10")
                 print(wardrobe[i].type)
                 suggestedCloths.image = wardrobe[i].photo
@@ -89,9 +89,6 @@ class suggestionVC: UIViewController {
             
 }
 
-    
-    
-    
     // Fetch wardrobe items from Database folder
     private func loadItems() -> [Item]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Item.ArchiveURL.path) as? [Item]

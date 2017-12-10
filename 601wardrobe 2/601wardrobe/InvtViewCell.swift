@@ -1,19 +1,18 @@
 //
-//  ItemTableViewCell.swift
+//  InvtViewCell.swift
 //  601wardrobe
 //
-//  Created by 文淦泉 on 2017/10/28.
-//  Copyright © 2017年 Tommy Zheng. All rights reserved.
+//  Created by Tommy Zheng on 12/9/17.
+//  Copyright © 2017 Tommy Zheng. All rights reserved.
 //
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
+class InvtViewCell: UITableViewCell {
     
-    //MARK: Properties
-    @IBOutlet weak var photoImageView: UIImageView!
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var Photo: UIImageView!
+    @IBOutlet weak var NameLabel: UILabel!
+    @IBOutlet weak var DetailLabel: UILabel!
     
     
     override func awakeFromNib() {

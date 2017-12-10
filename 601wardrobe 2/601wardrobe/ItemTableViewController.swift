@@ -35,10 +35,10 @@ class ItemTableViewController: UITableViewController {
         if let savedItems = loadItems() {
             items += savedItems
         }
-//        else {
-//            // Load the sample data.
-//            loadSampleItems()
-//        }
+        else {
+            // Load the sample data.
+            loadSampleItems()
+        }
         
     }
 
@@ -139,22 +139,22 @@ class ItemTableViewController: UITableViewController {
     
     //MARK: Private Methods
     
-//    private func loadSampleItems(){
-//
-//        let photo1 = UIImage(named: "Top")
-//        let photo2 = UIImage(named: "Pant")
-//
-//        guard let item1 = Item(name: "Sweater", photo: photo1, detail: "Vans grey sweater", pref: 5, type:"top") else {
-//            fatalError("Unable to instantiate item1")
-//        }
-//
-//        guard let item2 = Item(name: "Straight Jeans", photo: photo2, detail: "light blue", pref: 5, type:"pant") else {
-//            fatalError("Unable to instantiate item2")
-//        }
-//
-//        items += [item1, item2]
-//
-//    }
+    private func loadSampleItems(){
+
+        let photo1 = UIImage(named: "Top")
+        let photo2 = UIImage(named: "Pant")
+
+        guard let item1 = Item(name: "Sweater", photo: photo1, detail: "Vans grey sweater", pref: 5, type:"top") else {
+            fatalError("Unable to instantiate item1")
+        }
+
+        guard let item2 = Item(name: "Straight Jeans", photo: photo2, detail: "light blue", pref: 5, type:"pant") else {
+            fatalError("Unable to instantiate item2")
+        }
+
+        items += [item1, item2]
+
+    }
     
     private func saveItems() {
         let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(items, toFile: Item.ArchiveURL.path)

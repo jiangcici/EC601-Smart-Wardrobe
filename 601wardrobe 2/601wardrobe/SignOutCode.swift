@@ -34,9 +34,15 @@ class SignOutCode: UIViewController, UITextFieldDelegate {
         self.view.endEditing(true)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         getWeatherData(urlString: "http://api.openweathermap.org/data/2.5/weather?q=Boston,US&APPID=f22eb93db195b138f3e28fd4325b43b1")
+        self.cityNameTF.delegate = self
     }
     
     // Sign Out button Function
@@ -51,6 +57,7 @@ class SignOutCode: UIViewController, UITextFieldDelegate {
         DataService().keyChain.delete("uid")
         dismiss(animated: true, completion: nil)
     }
+
     
     // Get Weather Data from OPenWeather API
     func getWeatherData(urlString: String) {
