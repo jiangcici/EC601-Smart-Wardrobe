@@ -9,7 +9,9 @@
 import UIKit
 import os.log
 
+
 class ItemTableViewController: UITableViewController {
+
     
     //MARK: Properties
     
@@ -67,7 +69,7 @@ class ItemTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of ItemTableViewCell.")
         }
         
-        // Fetches the appropriate meal for the data source layout.
+        // Fetches the appropriate item for the data source layout.
         let item = items[indexPath.row]
         
         cell.nameLabel.text = item.name
@@ -138,20 +140,20 @@ class ItemTableViewController: UITableViewController {
     //MARK: Private Methods
     
     private func loadSampleItems(){
-        
+
         let photo1 = UIImage(named: "Top")
         let photo2 = UIImage(named: "Pant")
-        
+
         guard let item1 = Item(name: "Sweater", photo: photo1, detail: "Vans grey sweater", pref: 5, type:"top") else {
             fatalError("Unable to instantiate item1")
         }
-        
+
         guard let item2 = Item(name: "Straight Jeans", photo: photo2, detail: "light blue", pref: 5, type:"pant") else {
             fatalError("Unable to instantiate item2")
         }
-        
+
         items += [item1, item2]
-        
+
     }
     
     private func saveItems() {

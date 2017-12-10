@@ -12,7 +12,7 @@ import Firebase
 import FirebaseDatabase
 import KeychainSwift
 
-class auth: UIViewController {
+class auth: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var signInSelector: UISegmentedControl!
@@ -29,6 +29,8 @@ class auth: UIViewController {
         errorMessageLabel.text = ""
         emailTextField.text = ""
         passwordTextField.text = ""
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -37,7 +39,6 @@ class auth: UIViewController {
             performSegue(withIdentifier: "goToHome", sender: nil)
         }
     }
-
     
     func CompleteSignIn (id: String) {
         let keyChain = DataService().keyChain
@@ -109,5 +110,10 @@ class auth: UIViewController {
         passwordTextField.resignFirstResponder()
     }
     
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
 
 }
