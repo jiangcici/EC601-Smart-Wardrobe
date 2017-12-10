@@ -46,3 +46,11 @@ It is a dataset of 246 images(200 * 200 pixels each) in 5 categories:
 2-Shoes(50 images)
 3-Tees(50 images)
 4-Trousers(50 images)
+
+OUR DATASET
+
+<img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.06.54%20PM.png"/>
+<img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.06%20PM.png"/>
+<img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.15%20PM.png"/>
+<img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.24%20PM.png"/>
+<img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.33%20PM.png"/>
