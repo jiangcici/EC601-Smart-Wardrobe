@@ -14,9 +14,12 @@ HOW TO RUN OUR CODE (YOU NEED XCODE/MAC SINCE OUR PROJECT IS IOS APP AND WRITTEN
 
 - First, download the "601wardrobe 2" folder as a zip file.
 - Second, unzip the zip file and a folder called "601wardrobe 2" will come up.
-- Then, open the folder and run "601wardrobe.xcworkspace" in Xcode. 
+- Download the coreML model from this link: https://drive.google.com/file/d/1g40tqptDSHUX7Q7etqA5kCumVjMyEMJ-/view?usp=sharing
+- Then, move this coreML zip file to the folder containing the Xcode files and unzip it. 
+- Then, open the folder and run "601wardrobe.xcworkspace" in Xcode. You might need to add the coreML model into projec navigator section. 
 - Last, build and run the code with a simulator in Xcode. 
 
+SOME SCREENSHOTS FROM OUR APP:
 
 cnn_our_dataset.ipynb
 This python notebook contains the keras CNN model that we have used to train our dataset. 
