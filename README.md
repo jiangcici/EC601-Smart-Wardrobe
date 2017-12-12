@@ -47,7 +47,7 @@ It is a dataset of 246 images(200 * 200 pixels each) in 5 categories:
 3-Tees(50 images)
 4-Trousers(50 images)
 
-OUR DATASET
+PART OF OUR DATASET :
 
 <img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.06.54%20PM.png"/>
 <img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.06%20PM.png"/>
@@ -60,4 +60,4 @@ The Test report folder contains all the unit tests that we have done on the app 
 Below are some screenshots of the tests.
 
 <img height ="100" src = "https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/Test%20Report/signin_test.png"/>
-<img height ="100" src = "https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/Test%20Report/WDTR.png"/>
+<img height ="500" width ="1000" src = "https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/Test%20Report/WDTR.png"/>
