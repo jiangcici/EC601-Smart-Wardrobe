@@ -20,7 +20,7 @@ enum Species {
     case Trouser
 }
 
-class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class detailPage: UIViewController , UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var itemNameText: UITextField!
     @IBOutlet weak var itemDetailText: UITextField!
@@ -50,7 +50,6 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
 
 
     var item: Item?
-
 
     @IBAction func shootPhoto(_ sender: UIButton) {
         let picker = UIImagePickerController()
@@ -281,7 +280,6 @@ class detailPage: UIViewController ,UITextFieldDelegate, UIImagePickerController
         // Return the new grayscale image
         return newImage
     }
-
 
 }
 

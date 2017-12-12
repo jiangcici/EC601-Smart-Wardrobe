@@ -19,14 +19,19 @@ class suggestionVC: UIViewController {
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var emptylabel: UILabel!
     @IBOutlet weak var suggestedCloths: UIImageView!
+    @IBOutlet weak var suggestedClothe2: UIImageView!
+    @IBOutlet weak var suggestedClothe3: UIImageView!
     var wardrobe = [Item]()
+    var dresses = [Item]()
+    var heels = [Item]()
+    var shoes = [Item]()
+    var tees = [Item]()
+    var trousers = [Item]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         assignArray()
-//        tempLabel.text = String(temp_sent)
-//        getTemp(with: temp_sent)
     }
     
     override func didReceiveMemoryWarning() {
@@ -35,7 +40,7 @@ class suggestionVC: UIViewController {
     }
    //  To get temperature
     func getTemp(with temp_sent: Double) {
-        tempLabel.text = String(format: "%.1f", temp_sent)
+        tempLabel.text = String(format: "%.1f", temp_sent) + String("  °C")
         print("In get Temp")
         print(temp_sent)
         get_clothes(with: temp_sent)
@@ -57,42 +62,85 @@ class suggestionVC: UIViewController {
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    
-    func get_clothes(with tempsent: Double){
-       if tempsent > 10{
-        for i in 0...10{
-            if wardrobe[i].type == "dress" || wardrobe[i].type == "shoe" {
-                print(">10")
-                print(wardrobe[i].type)
-                suggestedCloths.image = wardrobe[i].photo
-                break
+
+    func get_clothes(with tempsent: Double) {
+        if tempsent > 10 {
+            suggestedClothe3.image = #imageLiteral(resourceName: "blank_image")
+            for i in 0 ..< wardrobe.count{
+                if wardrobe[i].type == "dress"{
+                    dresses.append(wardrobe[i])
+                }
+                else if wardrobe[i].type == "heel"{
+                    heels.append(wardrobe[i])
+                }
+            }
+            if dresses.isEmpty{
+                suggestedCloths.image = #imageLiteral(resourceName: "blank_image")
             }
             else{
-                continue
+                let n = dresses.count
+                let rndind = Int(arc4random_uniform(UInt32(n)))
+                suggestedCloths.image = dresses[rndind].photo
             }
-        }
-       }
-       else {
-        for i in 0...10{
-            if wardrobe[i].type == "t-shirt" || wardrobe[i].type == "shoe" {
-                print("<10")
-                print(wardrobe[i].type)
-                suggestedCloths.image = wardrobe[i].photo
-                break
+            if heels.isEmpty{
+                suggestedClothe2.image = #imageLiteral(resourceName: "blank_image")
             }
             else{
-                continue
+                let n = heels.count
+                let rndind = Int(arc4random_uniform(UInt32(n)))
+                suggestedClothe2.image = heels[rndind].photo
             }
+            if dresses.isEmpty && heels.isEmpty {
+                tempLabel.text = ""
+            }
+
         }
+        else{
+            for i in 0 ..< wardrobe.count{
+                if wardrobe[i].type == "t-shirt"{
+                    tees.append(wardrobe[i])
+                }
+                else if wardrobe[i].type == "shoe"{
+                    shoes.append(wardrobe[i])
+                }
+                else if wardrobe[i].type == "trouser"{
+                    trousers.append(wardrobe[i])
+                }
+            }
+            if tees.isEmpty{
+                suggestedCloths.image = #imageLiteral(resourceName: "blank_image")
+            }
+            else{
+                let n = tees.count
+                let rndind = Int(arc4random_uniform(UInt32(n)))
+                suggestedCloths.image = tees[rndind].photo
+            }
+            if trousers.isEmpty{
+                suggestedClothe2.image = #imageLiteral(resourceName: "blank_image")
+            }
+            else{
+                let n = trousers.count
+                let rndind = Int(arc4random_uniform(UInt32(n)))
+                suggestedClothe2.image = trousers[rndind].photo
+            }
+            if shoes.isEmpty{
+                suggestedClothe3.image = #imageLiteral(resourceName: "blank_image")
+            }
+            else{
+                let n = shoes.count
+                let rndind = Int(arc4random_uniform(UInt32(n)))
+                suggestedClothe3.image = shoes[rndind].photo
+            }
+            if tees.isEmpty && shoes.isEmpty && trousers.isEmpty {
+                tempLabel.text = ""
+            }
         }
     }
-            
-}
 
     // Fetch wardrobe items from Database folder
     private func loadItems() -> [Item]?  {
         return NSKeyedUnarchiver.unarchiveObject(withFile: Item.ArchiveURL.path) as? [Item]
     }
     
-
+}
 
