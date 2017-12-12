@@ -54,3 +54,10 @@ OUR DATASET
 <img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.15%20PM.png"/>
 <img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.24%20PM.png"/>
 <img height="200" src ="https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/dataset%20screenshots/Screen%20Shot%202017-12-10%20at%202.07.33%20PM.png"/>
+
+Test Report :
+The Test report folder contains all the unit tests that we have done on the app in the form of Excel sheets.
+Below are some screenshots of the tests.
+
+<img height ="100" src = "https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/Test%20Report/signin_test.png"/>
+<img height ="100" src = "https://github.com/jiangcici/EC601-Smart-Wardrobe/blob/master/Test%20Report/WDTR.png"/>
